@@ -1,14 +1,56 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Peliculas</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link th:href="@{/css/estilos.css}" rel="stylesheet" />
+    <script src='main.js'></script>
+
+    </script>
+    </header>
 </head>
 
 <body>
-    <header th:insert="~{fragments/changelang.html :: head}"></header>
-    <div th:replace="~{fragments/changelang.html :: body}"></div>
+
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">title</label>
+            <input type="text" id="exampleInputEmail1">
+
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">year</label>
+            <input type="text" id="exampleInputPassword1">
+        </div>
+
+        <text id="button">buscar</text>
+
+    </form>
+    <script>
+
+        document.getElementById("button").onclick = buscar;
+
+        function buscar() {
+            let titulo = document.getElementById("exampleInputEmail1").value;
+            let year = document.getElementById("exampleInputPassword1").value;
+
+
+
+            window.location.href="listMovies?title=" + titulo + "&year=" + year;
+            //window.location.replace("http://localhost:9090/movies?title=" + titulo + "&year=" + year);
+
+
+        }
+
+
+    </script>
+
     <div class="w3-container">
         <div class="w3-card-4" style="width:20%" th:each="movie : ${movies}" th:object="${movie}">
 
