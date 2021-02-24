@@ -20,6 +20,7 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	compile 'org.modelmapper:modelmapper:1.1.0'
+	compile 'com.microsoft.sqlserver:mssql-jdbc' // Compile bdd
 
 }
 
