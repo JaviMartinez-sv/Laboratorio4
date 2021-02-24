@@ -53,5 +53,28 @@ public class MovieService {
 
     }
 
+    // CRUD
+
+    public MovieDTO add(MovieDTO movie) {
+        Movie entityToInsert = modelMapper.map(movie, Movie.class);
+        Movie result = movieRepository.save(entityToInsert);
+        return modelMapper.map(result, MovieDTO.class);
+
+    }
+
+    public MovieDTO update(Long ID, MovieDTO movie) {
+
+        Movie entityToInsert = modelMapper.map(movie, Movie.class);
+        Movie result = movieRepository.save(entityToInsert);
+        return modelMapper.map(result, MovieDTO.class);
+    }
+
+    public void delete(Long ID) {
+        Optional<Movie> entityToDelete = movieRepository.findById(ID);
+        if (entityToDelete.isPresent()) {
+            movieRepository.delete(entityToDelete.get());
+        }
+
+    }
 
 }
